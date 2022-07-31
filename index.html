@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;700&display=swap');</style>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+        <link href="Recursos/css/estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="Recursos/js/funciones.js" type="text/javascript"></script>
+        <title>MTO | Productos</title>
+    </head>
+    <body onload="getProductosSeleccionados()">
+        <section class="contenedorPrincipal">
+            <header>
+                <div class="cabecera" id="cabecera">Mini<p class="light">Tienda</p>Online</div>
+            </header>
+            <section class="contenedorSecundario">
+                <section class="menu">
+                    <a class="botonMenuActivo" href="#">
+                        <img class="icono" src="Recursos/imagenes/IconoProductos-Activo.png" alt=""/>
+                    </a>
+                    <a href="CarroDeCompras.html" class="botonMenu" onclick="setProductosSeleccionados()">
+                        <img class="icono" src="Recursos/imagenes/IconoCarritoCompras.png" alt=""/>
+                    </a>
+                    <a href="DetalleCompra.html" class="botonMenu" onclick="setProductosSeleccionados()">
+                        <img class="icono" src="Recursos/imagenes/IconoCompra.png" alt=""/>
+                    </a>
+                    <input type="hidden" id="txtJsp" name="txtJsp" value="${txtJsp}">
+                    <input type="hidden" id="txtJsp2" name="txtJsp2" value="${txtJsp2}">
+                </section>
+                <section class="pagina">
+                    <h2 class="nombrePagina">Productos</h2>
+                    <div class="contenedor">
+                        <div class="contenedorPrincipalProducto">
+                            <div class="cuadroProducto" id="1" onclick="verProducto()">
+                                <div class="imagenProducto" >
+                                    <div class="cuadroImagen">
+                                        <img class="imagen" id="imagen" src="Recursos/imagenes/ImagenBananaSplit.png" alt=""/>
+                                    </div>
+                                </div>
+                                <div class="descripcionProducto">
+                                    <label  id="nombre"><p class="bold">Banana Split</p></label>
+                                </div>
+                                <div class="precioProducto">
+                                    <label id="precio">$5000</label>
+                                </div>
+                            </div>
+                            <img id="1" class="añadir" src="Recursos/imagenes/AñadirAlCarro.png" alt="" onclick="clickAñadir(this.id)"
+                                 onmouseover="setOverImageAñadir(this.id)" onmouseout="setOutImageAñadir(this.id)"/>
+                            <input type="hidden" id="descripcion" value="dsfs">
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <div class="overlay" id="overlay">
+                <div class="popupProducto" id="popupProducto">
+                    <img class="imagenPopup" id="imagenPopup" src="Recursos/imagenes/ImagenChurrascoItaliano.jpg" alt=""/>
+                    <div class="btnAñadir" id="btnAñadir" onclick="añadirPopUp()">
+                        <label>Añadir al</label><label class="bold"> Carro</label>
+                    </div>
+                    <div class="nombrePopup">
+                        <h1 id="nombrePopup"></h1>
+                    </div>
+                    <div class="descripcionPopup">
+                        <label id="descripcionPopup"></label>
+                    </div>
+                    <div class="precioPopup">
+                        <label id="precioPopup"></label>
+                    </div>
+                    <div class="btnCerrar" onclick="cerrarPopUp()">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <input type="hidden" id="id" value="">
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

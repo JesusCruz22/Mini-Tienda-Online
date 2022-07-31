@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="Recursos/estilos.css" rel="stylesheet" type="text/css"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;700&display=swap');</style>
+        <link href="Recursos/css/estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="Recursos/js/funciones.js" type="text/javascript"></script>
+        <title>MTO | Carro de Compras</title>
+    </head>
+    <body onload="llenarProductosSeleccionados()">
+        <div class="contenedorPrincipal">
+            <header>
+                <div class="cabecera">Mini<p class="light">Tienda</p>Online</div>
+            </header>
+            <div class="contenedorSecundario">
+                <form class="menu" method="post">
+                    <button type="submit" formaction="SeguirComprando.do" class="botonMenu" onclick="setProductosCarrito()">
+                        <div class="light">Seguir</div><div class="bold"> Comprando</div>
+                    </button>
+                    <div class="botonMenuActivo">
+                        <img class="icono" src="Recursos/imagenes/IconoCarritoCompras-Activo.png" alt=""/>
+                    </div>
+                    <button type="submit" formaction="Comprar.do" class="botonMenu" onclick="setProductosCarrito()">
+                        <img class="icono" src="Recursos/imagenes/IconoCompra.png" alt=""/>
+                    </button>
+                    <input type="hidden" id="txtJsp" name="txtJsp" value="${txtJsp}">
+                    <input type="hidden" id="txtJsp2" name="txtJsp2" value="${txtJsp2}">
+                </form>
+                <div class="pagina">
+                    <div class="nombrePagina">Carro de Compras</div>
+                    <c:if test="${empty arrayProductosSeleccionados}">
+                        <hr/><h1>Carro de Compras Vacio</h1><br/><h2>Seguir Comprando</h2><hr/>
+                    </c:if>
+                    <c:if test="${not empty arrayProductosSeleccionados}">
+                        <div class="carroDeCompras" id="carroDeCompras">
+                            <c:forEach items="${arrayProductosSeleccionados}" var="producto">
+                                <div class="productoCarro" id="${producto.getId()}cp">
+                                    <div class="imagenProductoCarro">
+                                            <img class="imagenCarro" src=${producto.getImagen()} alt=""/>
+                                    </div>
+                                    <div class="nombreProductoCarro">
+                                        <label><p class="bold">${producto.getNombre()}</p></label>
+                                    </div>
+                                    <div class="descripcionProductoCarro">
+                                        <label>${producto.getDescripcion()}</label>
+                                    </div>
+                                    <div class="precioProductoCarro">
+                                        <label>$producto.getPrecioUnidad()c/u</label>
+                                    </div>
+                                    <div class="inputCantidad">
+                                        <label>Cantidad :</label>
+                                        <button class="botonMenos" id="botonMenos${producto.getId()}" onclick="modificarCantidad(this.id, producto.getId())">-</button>
+                                        <input type="number" class="cantidad" id="cantidad${producto.getId()}" value="1" readonly>
+                                        <button class="botonMas" id="botonMas${producto.getId()}" onclick="modificarCantidad(this.id, producto.getId())">+</button>
+                                    </div>
+                                        <img class="quitar" id="${producto.getId()}" src="Recursos/imagenes/quitarActivo.png" alt="" 
+                                             onmouseover="setOverImageQuitar(this.id)" onmouseout="setOutImageQuitar(this.id)" onclick="clickQuitar(this.id)"/>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </c:if>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

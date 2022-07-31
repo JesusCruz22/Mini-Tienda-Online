@@ -1,0 +1,78 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="Recursos/estilos.css" rel="stylesheet" type="text/css"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;700&display=swap');</style>
+        <link href="Recursos/css/estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="Recursos/js/funciones.js" type="text/javascript"></script>
+        <title>MTO | Detalle de Compra</title>
+    </head>
+    <body onload="llenarProductosSeleccionados()">
+        <div class="contenedorPrincipal">
+            <header>
+                <div class="cabecera">Mini<p class="light">Tienda</p>Online</div>
+            </header>
+            <div class="contenedorSecundario">
+                <form class="menu" method="post">
+                    <button type="submit" formaction="SeguirComprando.do" class="botonMenu" onclick="setProductosSeleccionados()">
+                        <div class="light">Seguir</div><div class="bold"> Comprando</div>
+                    </button>
+                    <button type="submit" formaction="AgregarProducto.do" class="botonMenu" onclick="setProductosSeleccionados()">
+                        <img class="icono" src="Recursos/imagenes/IconoCarritoCompras.png" alt=""/>
+                    </button>
+                    <div class="botonMenuActivo">
+                        <img class="icono" src="Recursos/imagenes/IconoCompra-Activo.png" alt=""/>
+                    </div>
+                    <input type="hidden" id="txtJsp" name="txtJsp" value="${txtJsp}">
+                    <input type="hidden" id="txtJsp2" name="txtJsp2" value="${txtJsp2}">
+                </form>
+                <div class="pagina" id="pagina">
+                    <div class="nombrePagina">Detalle de Compra</div>
+                    <c:if test="${empty arrayDetalleCompra}">
+                        <hr/><h1>Carro de Compras Vacio</h1><br/><h2>Seguir Comprando</h2><hr/>
+                    </c:if>
+                    <c:if test="${not empty arrayDetalleCompra}">
+                        <hr/>
+                        <div class="detalleCompra" id="detalleCompra">
+                            <div class="cabeceraBoleta" >
+                                <div class="productoCabecera">
+                                    <p class="bold">Producto</p>
+                                </div>
+                                <div class="cantidadCabecera">
+                                    <p class="bold">Cantidad</p>
+                                </div>
+                                <div class="precioCabecera">
+                                    <p class="bold">Precio</p>
+                                </div>
+                            </div>
+                            <c:forEach items="${arrayDetalleCompra}" var="producto">
+                                <div class="registroBoleta" >
+                                    <div class="producto">
+                                        <p>${producto.getNombre()}</p>
+                                    </div>
+                                    <div class="cantidadProducto">
+                                        <p class="light">x</p><p>${producto.getCantidad()}</p>
+                                    </div>
+                                    <div class="precio">
+                                        <p class="bold">$${producto.getPrecioTotal()}</p>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <hr/>
+                        <h2>Total : $${precioTotalCompra}</h2>
+                        <button class="botonFinal" onclick="realizarPago()">
+                            <div class="light">Realizar</div><div class="bold"> Pago</div>
+                        </button>
+                    </c:if>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
