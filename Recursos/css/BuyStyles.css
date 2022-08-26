@@ -1,0 +1,217 @@
+.buy-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.products-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.products-table th, .products-table td {
+    display: table-cell;
+    text-align: center;
+    height: auto;
+    padding: .5rem;
+    border-radius: 5px;
+    font-size: 4vw;
+    background-color: var(--second-white);
+}
+
+.products-table th {
+    font-size: 4.5vw;
+    font-weight: bolder;
+}
+
+.products-table .empty-cell {
+    background-color: var(--main-white);
+}
+
+.products-table tfoot {
+    font-weight: bolder;
+}
+
+.pay-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1em 0;
+}
+
+.pay-section label, .products-table caption {
+    text-align: center;
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+.pay-methods-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1em;
+}
+
+.pay-methods-buttons button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+}
+
+.method-button-selected {
+    background: var(--green);
+}
+        
+.pay-button {
+    display: none;
+    font-size: 7vw;
+    padding: .5rem;
+}
+
+.success-buy-icon {
+    width: 70vw;
+}
+
+@media (min-width: 420px) {    
+    .products-table {
+        width: 90%;
+    }
+    
+    .products-table th, .products-table td {
+        padding: .5rem;
+        font-size: 3vw;
+    }
+    
+    .products-table th {
+        font-size: 3.5vw;
+    }
+        
+    .pay-section {
+        margin: 1em;
+    }
+
+    .pay-section label {
+        font-size: 4vw;
+    }
+        
+    .pay-methods-buttons {
+        margin: 1em;
+    }
+        
+    .pay-button {
+        font-size: 6vw;
+        padding: .5rem 1rem;
+    }
+    
+    .success-buy-icon {
+        width: 65vw;
+    }
+}
+
+@media (min-width: 720px) {
+    .products-table {
+        width: 80%;
+    }
+    
+    .products-table th, .products-table td {
+        font-size: 2.5vw;
+    }
+    
+    .products-table th {
+        font-size: 3vw;
+    }
+        
+    .pay-section {
+        margin: 1em;
+    }
+        
+    .pay-methods-buttons {
+        margin: 1em;
+    }
+
+    .pay-section label, .products-table caption {
+        font-size: 3vw;
+    }
+        
+    .pay-button {
+        font-size: 5vw;
+        padding: 1rem 2rem;
+    }
+    
+    .success-buy-icon {
+        width: 55vw;
+    }
+}
+
+@media (min-width: 1020px) {
+    .products-table {
+        width: 60%;
+    }
+    
+    .products-table th, .products-table td {
+        padding: .5rem;
+        font-size: 1.5vw;
+    }
+    
+    .products-table th {
+        font-size: 2vw;
+    }
+        
+    .pay-section {
+        margin: 1em;
+    }
+        
+    .pay-section label, .products-table caption {
+        font-size: 1.5vw;
+    }
+
+    .pay-methods-buttons {
+        margin: 1em;
+    }
+        
+    .pay-button {
+        font-size: 3vw;
+        padding: 1rem 2rem;
+    }
+    
+    .success-buy-icon {
+        width: 35vw;
+    }
+}
+
+@media (min-width: 1620px) {
+    .products-table {
+        width: 40%;
+    }
+    
+    .products-table th, .products-table td {
+        padding: .5rem;
+        font-size: 1vw;
+    }
+    
+    .products-table th {
+        font-size: 1vw;
+    }
+        
+    .pay-section label, .products-table caption {
+        font-size: 1vw;
+    }
+
+    .pay-methods-buttons {
+        margin: 1em;
+    }
+            
+    .pay-button {
+        font-size: 3vw;
+        padding: 1rem 2rem;
+    }
+    
+    .success-buy-icon {
+        width: 25vw;
+    }
+}

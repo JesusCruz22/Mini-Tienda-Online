@@ -1,0 +1,142 @@
+body {
+    background-color: var(--second-white);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-bottom: 25%;
+}
+
+label {
+    text-align: start;
+    font-weight: bolder;
+    color: black;
+}
+
+.user-bar {
+    position: sticky;
+    top: 0;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    padding: .25rem 5vw;
+    background-color: var(--second-white);
+}
+
+.user-bar .label {
+    width: fit-content;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem 0;
+    height: 100vh;
+    background-color: var(--main-white);
+}
+
+.product-form {
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: .5rem 0;
+    height: fit-content;
+    background-color: var(--main-white);
+}
+
+.product-image {
+    transition: all 0.5s ease;
+    border-radius: 10px;
+    margin: 1em;
+    width: 30vh;
+    height: 30vh;
+    aspect-ratio: 1 / 1;
+    background-color: var(--second-white);
+}
+
+.input-image {
+    transition: all 0.25s ease;
+    margin: .5em auto 1em;
+    padding: .5rem 1rem;
+    width: 100%;
+    color: var(--main-white);
+    background-color: var(--main-color);
+    border-radius: 10px;
+}
+
+.input-image::-webkit-file-upload-button {
+    transition: all 0.25s ease;
+    color: var(--main-white);
+    font-weight: 700;
+    background-color: var(--second-color);
+    margin: .5em;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.input-image::-webkit-file-upload-button:hover {
+    transition: all 0.25s ease;
+    color: var(--second-white);
+    transform: scale(1.1);
+}
+
+.input-image::-webkit-file-upload-button:active {
+    transition: all 0.25s ease;
+    color: var(--main-white);;
+    transform: scale(0.9);
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+.input {
+    width: 100%;
+    margin: .5em auto 1em;
+    padding: 1rem;
+    color: black;
+    font-weight: 400;
+    border: 1px var(--second-white) solid;
+    border-radius: 10px;
+    resize: vertical;
+}
+
+.buttons-section {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (min-width: 620px) {
+    .user-bar {
+        padding: .25rem 18vw;
+    }
+
+    .auth-form, .product-form {
+        margin: 0 15%;
+    }
+
+    .label {
+        width: 85%;
+    }
+}
+
+@media (min-width: 1020px) {
+    .user-bar {
+        padding: .25rem 25vw;
+    }
+
+    .auth-form, .product-form {
+        margin: 0 25%;
+    }
+
+    .label {
+        width: 75%;
+    }
+}

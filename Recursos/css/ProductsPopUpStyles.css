@@ -1,0 +1,483 @@
+.pop-up-background {
+    transition: all 0.25s ease-in-out;
+    position: fixed;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.pop-up-close-area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+
+.product-pop-up {
+    transition: all 0.25s ease-in-out;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(7, 7fr);
+    gap: .5rem;
+    margin: auto;
+    padding: .5rem;
+    width: 90vw;
+    height: 90%;
+    border-radius: 10px;
+    transform: scale(0);
+    z-index: 5;
+    background-color: var(--second-white);
+}
+
+.product-pop-up .loader {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+}
+
+.pop-up-image {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.pop-up-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    font-size: 6vw;
+    font-weight: bolder;
+    border-radius: 10px;
+    background-color: var(--main-white);
+}
+
+.pop-up-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    font-size: 6vw;
+    font-weight: bolder;
+    border-radius: 10px;
+    background-color: var(--main-white);
+}
+
+.pop-up-stock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    font-size: 6vw;
+    font-weight: bolder;
+    border-radius: 10px;
+    background-color: var(--main-white);
+}
+
+.pop-up-description {
+    text-align: center;
+    grid-column: 1 / 3;
+    grid-row: 4 / 6;
+    padding: .5rem;
+    font-size: 4.5vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 10px;
+    background-color: var(--main-white);
+}
+
+.product-quantity-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / 3;
+    grid-row: 6 / 7;
+}
+
+.product-quantity-group button {
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    height: 100%;
+    font-size: 8vw;
+    font-weight: bolder;    
+}
+
+.product-quantity-group button:hover {
+    transform: scale(1.02);
+}
+
+.product-quantity-group button:active {
+    color: var(--main-white);
+    transform: scale(0.9);
+}
+
+.pop-up-product-quantity {
+    margin: 0 .5rem;
+    width: 50%;
+    height: 100%;
+    padding: 1rem;
+    color: black;
+    text-align: center;
+    font-size: 6vw;
+    font-weight: bolder;    
+    border: 1px var(--second-color) solid;
+    border-radius: 10px;
+}
+
+.pop-up-close-button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    grid-column: 1 / 2;
+    grid-row: 7 / 8;
+    margin: 0;
+    padding: .5rem;
+    font-size: 4vw;
+    color: black;
+    background-color: var(--main-white);
+}
+
+.pop-up-close-button:hover {
+    color: var(--main-color);
+    transform: scale(1.025);
+}
+
+.pop-up-close-button:active {
+    color: var(--second-color);
+    transform: scale(0.9);
+}
+
+.pop-up-add-product-button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    grid-column: 2 / 3;
+    grid-row: 7 / 8;
+    margin: 0;
+    padding: .5rem;
+    font-size: 4vw;
+}
+
+.pop-up-add-product-button:hover {
+    transform: scale(1.02);
+}
+
+.pop-up-add-product-button:active {
+    color: var(--main-white);
+    transform: scale(0.9);
+}
+
+.pop-up-remove-product-button {
+    background-color: var(--green);
+}
+
+.pop-up-remove-product-button:hover {
+    background-color: var(--red);
+}
+
+.pop-up-add-product-button .add-product, .pop-up-close-button .add-product {
+    pointer-events: none;
+    width: 25%;
+}
+
+.pop-up-close-button .add-product {
+    transform: rotateZ(45deg);
+}
+
+@media (min-width: 420px) {
+    .product-pop-up {
+        width: 75%;
+        height: 80%;
+    }
+    
+    .pop-up-name {
+        font-size: 5vw;
+    }
+
+    .pop-up-price {
+        font-size: 5vw;
+    }
+
+    .pop-up-stock {
+        font-size: 5vw;
+    }
+
+    .pop-up-description {
+        font-size: 3.5vw;
+    }
+
+    .pop-up-product-quantity {
+        font-size: 5vw;
+        width: 60%;
+    }
+
+    .pop-up-close-button {
+        font-size: 3vw;
+    }
+
+    .pop-up-add-product-button {
+        font-size: 3vw;
+    }
+}
+
+@media (min-width: 520px) {
+    .product-pop-up {
+        width: 65%;
+        height: 80%;
+    }
+}
+
+@media (min-width: 620px) {
+    .product-pop-up {
+        width: 50vw;
+        height: 80%;
+    }
+    
+    .pop-up-name {
+        font-size: 4vw;
+    }
+
+    .pop-up-price {
+        font-size: 4vw;
+    }
+
+    .pop-up-stock {
+        font-size: 4vw;
+    }
+
+    .pop-up-description {
+        font-size: 3vw;
+    }
+
+    .pop-up-product-quantity {
+        font-size: 4vw;
+        width: 60%;
+    }
+
+    .pop-up-close-button {
+        font-size: 3vw;
+    }
+
+    .pop-up-add-product-button {
+        font-size: 3vw;
+    }
+}
+
+@media (min-width: 820px) {
+    .product-pop-up {
+        width: 40vw;
+        height: 80%;
+    }
+
+    .pop-up-name {
+        font-size: 3vw;
+    }
+
+    .pop-up-price {
+        font-size: 3vw;
+    }
+
+    .pop-up-stock {
+        font-size: 3vw;
+    }
+
+    .pop-up-description {
+        padding: 1rem;
+        font-size: 2vw;
+    }
+
+    .pop-up-product-quantity {
+        font-size: 3vw;
+    }
+
+    .pop-up-close-button {
+        font-size: 2vw;
+    }
+
+    .pop-up-add-product-button {
+        font-size: 2vw;
+    }
+
+}
+
+@media (min-width: 1020px) {
+    .product-pop-up {
+        width: 35%;
+        height: 80%;
+    }
+
+
+    .pop-up-name {
+        font-size: 2.5vw;
+    }
+
+    .pop-up-price {
+        font-size: 2.5vw;
+    }
+
+    .pop-up-stock {
+        font-size: 2.5vw;
+    }
+
+    .pop-up-description {
+        padding: 1rem;
+        font-size: 1.5vw;
+    }
+
+    .product-quantity-group button {
+        font-size: 3vw;
+    }
+
+    .pop-up-product-quantity {
+        font-size: 2vw;
+    }
+
+    .pop-up-close-button {
+        font-size: 2vw;
+    }
+
+    .pop-up-add-product-button {
+        font-size: 2vw;
+    }
+}
+
+@media (min-width: 1320px) {
+    .product-pop-up {
+        display: grid;
+        grid-template-columns: repeat(3, 3fr);
+        grid-template-rows: repeat(4, 4fr);
+        gap: 1rem;
+        padding: 1rem;
+        width: 85%;
+        height: 60%;
+    }
+
+    .product-pop-up .loader {
+        grid-column: 1 / 2;
+        grid-row: 2 / 5;
+    }
+
+    .pop-up-image {
+        grid-column: 1 / 2;
+        grid-row: 2 / 5;
+        width: auto;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    .pop-up-name {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        font-size: 2.25vw;
+    }
+
+    .pop-up-price {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+        font-size: 2.25vw;
+    }
+
+    .pop-up-stock {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+        font-size: 2.25vw;
+    }
+
+    .product-quantity-group {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+        margin: auto;
+        height: 50%;
+    }
+
+    .product-quantity-group button {
+        font-size: 3vw;
+    }
+
+    .pop-up-product-quantity {
+        font-size: 2vw;
+    }
+    
+    .pop-up-description {
+        text-align: center;
+        grid-column: 2 / 3;
+        grid-row: 1 / 4;
+        padding: 1rem;
+        font-size: 1.25vw;
+    }
+    
+    .pop-up-close-button {
+        grid-column: 2 / 3;
+        grid-row: 4 / 5;
+        font-size: 2.25vw;
+    }
+
+    .pop-up-add-product-button {
+        grid-column: 3 / 4;
+        grid-row: 4 / 5;
+        font-size: 2.25vw;
+    }
+
+    .pop-up-add-product-button .add-product, .pop-up-close-button .add-product {
+        width: 20%;
+    }
+}
+
+@media (min-width: 1620px) {
+    .product-pop-up {
+        width: 70%;
+    }
+
+    .pop-up-name {
+        font-size: 1.5vw;
+    }
+
+    .pop-up-price {
+        font-size: 1.5vw;
+    }
+
+    .pop-up-stock {
+        font-size: 1.5vw;
+    }
+
+    .product-quantity-group button {
+        font-size: 2vw;
+    }
+
+    .pop-up-product-quantity {
+        font-size: 1.5vw;
+    }
+
+    .pop-up-description {
+        padding: 1rem;
+        font-size: 1vw;
+    }
+
+    .pop-up-close-button {
+        font-size: 1.5vw;
+        padding: .5rem 2rem;
+    }
+
+    .pop-up-add-product-button {
+        font-size: 1.5vw;
+        padding: .5rem 2rem;
+    }
+}
