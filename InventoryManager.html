@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;700&display=swap');
+    </style>
+
+    <link href="Recursos/css/Styles.css" rel="stylesheet" type="text/css" />
+    <link href="Recursos/css/InventoryManagerStyles.css" rel="stylesheet" type="text/css" />
+
+    <title>MTO - Manage Inventory</title>
+</head>
+
+<body>
+    <a class="float-button" href="index.html"> &lArr; Volver a la Tienda</a>
+
+    <section id="user-bar" class="user-bar">
+        <label id="user-label" for="sign-out" class="label"></label>
+        <button id="sign-out-button" type="button">Cerrar Sesión</button>
+    </section>
+
+    <form id="auth-form" class="auth-form">
+        <div id="auth-info" class="info"></div>
+
+        <label for="input-email" class="label-input-email label">
+            Correo Electronico:
+            <input id="input-email" class="input-email input" type="text">
+        </label>
+
+        <label for="input-password" class="label-input-password label">
+            Contraseña:
+            <input id="input-password" class="input-password input" type="password">
+        </label>
+
+        <section id="auth-buttons-section" class="buttons-section">
+            <button id="sign-in-button" type="button">Iniciar Sesión</button>
+            <button id="sign-up-button" type="button">Registrarse</button>
+        </section>
+
+        <div id="auth-form-loader" class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </form>
+
+    <form id="product-form" class="product-form">
+        <div id="product-form-loader" class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <img id="product-image" class="product-image" src="" alt="" />
+        <div id="product-info" class="info"></div>
+
+        <label for="input-image" class="label-input-image label">
+            Sube la imagen del producto:
+            <input id="input-image" class="input-image" type="file">
+        </label>
+
+        <label for="input-name" class="label-input-name label">
+            Ingrese el nombre del producto:
+            <input id="input-name" class="input-name input" type="text">
+        </label>
+
+        <label for="input-price" class="label-input-price label">
+            Ingrese el precio del producto:
+            <input id="input-price" class="input-price input" type="number">
+        </label>
+
+        <label for="input-stock" class="label-input-stock label">
+            Ingrese el stock del producto:
+            <input id="input-stock" class="input-stock input" type="number">
+        </label>
+
+        <label for="input-description" class="label-input-description label">
+            Ingrese una descripcion para el producto:
+            <textarea id="input-description" class="input-description input" name="input-description" rows="5"
+                cols="50"></textarea>
+        </label>
+
+        <section id="products-buttons-section" class="buttons-section">
+            <button id="set-button" type="button">Ingresar ó Actualizar</button>
+            <button id="get-button" type="button">Buscar</button>
+            <button id="remove-button" type="button">Eliminar</button>
+        </section>
+    </form>
+
+    <script src="Recursos/js/Firebase.js" type="module"></script>
+    <script src="Recursos/js/Authentication.js" type="module"></script>
+    <script src="Recursos/js/InventoryManager.js" type="module"></script>
+</body>
+
+</html>
