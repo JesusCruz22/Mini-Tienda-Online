@@ -1,9 +1,16 @@
+import { getDatabase, ref, set, child } from 'https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js';
 import { buyContainer, main, mainSectionLoader } from './MenuNavigation.js';
 import { selectedProductsList, selectedProductsQuantities, FormatPrice, SetSelectedProducts } from './ProductsCatalog.js';
 
 export {
     SetBuyProcess
 }
+
+let totalPrice = 0;
+let payMethod = '';
+let buyProductsList = [];
+
+const database = getDatabase();
 
 // Check if selectedProducts isn't empty to start buy process
 function SetBuyProcess() {
@@ -23,10 +30,11 @@ function SetBuy() {
 
 // Create and fill resume products table
 function SetProductTable() {
-    let totalPrice = 0;
-
+    // Clean buy container and buyProductsList to show and set new information
     buyContainer.innerHTML = '';
+    buyProductsList = [];
 
+    // Create a new table stylized
     const productsTable = document.createElement('table');
     productsTable.classList.add('products-table');
 
@@ -64,6 +72,7 @@ function SetProductTable() {
             <td>${FormatPrice(productsPrice)}</td>`;
 
         productTableBody.appendChild(productTableElement);
+        SetBuyProductsList(selectedProduct, quantity, productsPrice);
     });
 
     // Set Table foot
@@ -120,12 +129,14 @@ function SetPaySectionButtons() {
     const cardMethodButton = document.getElementById('card-method-button');
 
     cashMethodButton.addEventListener('click', () => {
+        payMethod = 'Efectivo';
         cashMethodButton.classList.add('method-button-selected');
         cardMethodButton.classList.remove('method-button-selected');
         if (payButton.style.display != 'flex') payButton.style.display = 'inline-block';
     });
 
     cardMethodButton.addEventListener('click', () => {
+        payMethod = 'Debito/Credito';
         cashMethodButton.classList.remove('method-button-selected');
         cardMethodButton.classList.add('method-button-selected');
         if (payButton.style.display != 'flex') payButton.style.display = 'inline-block';
@@ -138,13 +149,11 @@ function SetPayButton() {
 
     mainSectionLoader.style.display = 'inline-block';
     buyContainer.innerHTML = '<div class="info">Procesando pago...</div>';
-    selectedProductsList.splice(0, selectedProductsList.length);
-    selectedProductsQuantities.splice(0, selectedProductsQuantities.length);
 
-    SetSelectedProducts();
+    SaveBuy();
 
     setTimeout(() => {
-        buyContainer.innerHTML = 
+        buyContainer.innerHTML =
             `<div class="info">COMPRA EXITOSA!!!</div>
             <img class="success-buy-icon" src="Recursos/imagenes/WEBP/success-buy-icon.webp" alt="">
             <div class="info">Gracias por tu preferencia<br>(ᵔ▽ᵔ)</div>`;
@@ -156,6 +165,37 @@ function SetPayButton() {
     }, timeoutTime);
 }
 
+// Fill array to save data of selected products to buy
+function SetBuyProductsList(selectedProduct, quantity, productsPrice) {
+    const productBuyData = {
+        name: selectedProduct.name,
+        quantity: quantity,
+        unitPrice: selectedProduct.price,
+        productsPrice: productsPrice
+    }
+
+    buyProductsList.push(productBuyData);
+}
+
+// Save buy data into the database
 function SaveBuy() {
-    
+    const date = new Date();
+    const purchaseData = {
+        buyProductsList: buyProductsList,
+        totalPrice: totalPrice,
+        payMethod: payMethod
+    }
+
+    set(child(ref(database), 'Purchases/' + date), {
+        purchaseData: purchaseData
+    })
+        .then(() => {
+            selectedProductsList.splice(0, selectedProductsList.length);
+            selectedProductsQuantities.splice(0, selectedProductsQuantities.length);
+            SetSelectedProducts();
+        })
+
+        .catch((error) => {
+            console.error(error);
+        });
 }
