@@ -1,9 +1,10 @@
-import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js';
+import { getDatabase, ref, onValue, query, orderByChild } from 'https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js';
 import { main, productsContainer, mainSectionLoader } from './MenuNavigation.js';
 
 export {
     selectedProductsList,
     selectedProductsQuantities,
+    orderBySelect,
     FormatPrice,
     SetSelectedProducts,
     AddProductsCards
@@ -44,13 +45,13 @@ const increaseQuantityButton = document.querySelector('#increase-quantity-button
 const decreaseQuantityButton = document.querySelector('#decrease-quantity-button');
 const popUpAddProductButton = document.querySelector('#pop-up-add-product-button');
 const popUpCloseButton = document.querySelector('#pop-up-close-button');
-
-const FormatPrice = function(number){
-    return '$' + new Intl.NumberFormat().format(number) + ' CLP';
-};
+// Order by select reference
+const orderBySelect = document.getElementById('order-by-select');
 
 /* ---------------------------------------------------------- */
 // DOM Events
+
+// On load window event
 window.addEventListener('load', () => {
     GetProducts();
 });
@@ -84,6 +85,12 @@ popUpCloseArea.addEventListener('click', () => {
 popUpCloseButton.addEventListener('click', () => {
     HideProductPopUp();
 });
+
+// OrderBySelect event
+orderBySelect.onchange = () => {
+    OrderProductsCatalog(orderBySelect.value);
+}
+
 
 /* ---------------------------------------------------------- */
 /* FUNCTIONS */
@@ -164,6 +171,44 @@ function AddProductsCards() {
         ShowImageLoader(productIndex);
 
     });
+}
+
+// Get order data by one of the options and set products catalog view
+function OrderProductsCatalog(option) {
+    if (option == 'Más Barato') {
+        OrderBy('price', false);
+        return;
+    }
+    if (option == 'Más Caro') {
+        OrderBy('price', true);
+        return
+    }
+    if (option == 'A - Z') {
+        OrderBy('name', false);
+        return
+    }
+    if (option == 'Z - A') {
+        OrderBy('name', true);
+        return
+    }
+}
+
+// Get order data by one of the options and set products catalog view
+function OrderBy(property, reverse) {
+    productsList.splice(0, productsList.length);
+    ShowProductsLoader(true);
+
+    onValue(
+        query(ref(database, 'Products/'), orderByChild(property)), (snapshot) => {
+            snapshot.forEach((childSnapshot) => {
+                let childData = childSnapshot.val();
+                productsList.push(childData);
+            });
+
+            if (reverse) productsList.reverse();
+            AddProductsCards();
+            ShowProductsLoader(false);
+        });
 }
 
 // Function to show or hide loader element on request products from database
@@ -418,5 +463,9 @@ function SetOutAddButtonText() {
     }
 }
 
+// Set price format
+function FormatPrice(number) {
+    return '$' + new Intl.NumberFormat().format(number) + ' CLP';
+};
 
 
