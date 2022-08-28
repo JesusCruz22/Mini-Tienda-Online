@@ -1,89 +1,132 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.9.3/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.9.3/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.9.3/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.9.3/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.9.3/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.9.3/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.9.3/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.9.3/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.9.3/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.9.3/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;700&display=swap');
     </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <link href="Recursos/css/Styles.css" rel="stylesheet" type="text/css" />
+    <link href="Recursos/css/MenuStyles.css" rel="stylesheet" type="text/css" />
+    <link href="Recursos/css/ProductsCatalogStyles.css" rel="stylesheet" type="text/css" />
+    <link href="Recursos/css/ProductsPopUpStyles.css" rel="stylesheet" type="text/css" />
+    <link href="Recursos/css/ShoppingCartStyles.css" rel="stylesheet" type="text/css" />
+    <link href="Recursos/css/BuyStyles.css" rel="stylesheet" type="text/css" />
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+    <script src="Recursos/js/Firebase.js" type="module"></script>
+    <script src="Recursos/js/MenuNavigation.js" type="module"></script>
+
+    <title>MTO | Productos</title>
+    <link rel="icon" href="Recursos/imagenes/icono-mto.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <a id="manage-inventory-button" class="float-button" href="InventoryManager.html">Administrar Inventario &rArr;</a>
+
+    <header>
+        <h1>Mini Tienda Online</h1>
+    </header>
+
+    <nav class="menu">
+        <a id="menu-products-button" class="menu-button-active">
+            Productos
+            <img class="icon" src="Recursos/imagenes/WEBP/IconoProductos-Activo.webp" alt="" />
+        </a>
+        <a id="menu-cart-button" class="menu-button">
+            Carro
+            <img class="icon" src="Recursos/imagenes/WEBP/IconoCarritoCompras.webp" alt="" />
+        </a>
+        <a id="menu-buy-button" class="menu-button">
+            Comprar
+            <img class="icon" src="Recursos/imagenes/WEBP/IconoCompra.webp" alt="" />
+        </a>
+    </nav>
+
+    <main>
+        <div id="main-section-loader" class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <label id="order-by-label" class="order-by-label">
+            <div>
+                <select id="order-by-select">
+                    <option value="" disabled="disabled" selected="selected">Ordenar por...</option>
+                    <option>Más Barato</option>
+                    <option>Más Caro</option>
+                    <option>A - Z</option>
+                    <option>Z - A</option>
+                </select>
+
+                <span class="select-arrow"></span>
+            </div>
+        </label>
+        
+        <section id="products-container" class="products-container">
+        </section>
+
+        <section id="cart-container" class="cart-container">
+        </section>
+
+        <section id="buy-container" class="cart-container">
+        </section>
+    </main>
+
+    <section id="pop-up-background" class="pop-up-background">
+        <div id="pop-up-close-area" class="pop-up-close-area"></div>
+        <article id="product-pop-up" class="product-pop-up">
+
+            <div id="pop-up-image-loader" class="loader">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <img id="pop-up-image" class="pop-up-image" src="Recursos/imagenes/WEBP/ImagenCompletoItaliano.webp"
+                alt="" />
+
+            <span id="pop-up-name" class="pop-up-name">Churrasco Italiano</span>
+            <span id="pop-up-price" class="pop-up-price">Price $0000</span>
+            <span id="pop-up-stock" class="pop-up-stock">Stock 00</span>
+            <p id="pop-up-description" class="pop-up-description">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Ut tempore eum sint cum, omnis ratione hic necessitatibus illo sit optio voluptatem? Voluptatum eos
+                voluptate delectus fugit placeat quia nam eius.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Ut tempore eum sint cum, omnis ratione hic necessitatibus illo sit optio voluptatem? Voluptatum eos
+                voluptate delectus fugit placeat quia nam eius.
+            </p>
+
+            <div class="product-quantity-group">
+                <button id="decrease-quantity-button">-</button>
+                <input id="pop-up-product-quantity" class="pop-up-product-quantity" type="number" placeholder="Cantidad"
+                    readonly>
+                <button id="increase-quantity-button">+</button>
+            </div>
+
+            <button id="pop-up-close-button" class="pop-up-close-button">
+                Cerrar
+                <img class="add-product" src="Recursos/imagenes/WEBP/AñadirAlCarro.webp" alt="" />
+            </button>
+
+            <button id="pop-up-add-product-button" class="pop-up-add-product-button">
+                Añadir al Carro
+                <img class="add-product" src="Recursos/imagenes/WEBP/AñadirAlCarro.webp" alt="" />
+            </button>
+        </article>
+    </section>
+
+    <footer>
+
+    </footer>
+
+</body>
+
 </html>
