@@ -1,5 +1,5 @@
 import { getDatabase, ref, set, child } from 'https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js';
-import { buyContainer, main, mainSectionLoader } from './MenuNavigation.js';
+import { buyContainer, mainSectionLoader } from './MenuNavigation.js';
 import { selectedProductsList, selectedProductsQuantities, FormatPrice, SetSelectedProducts } from './ProductsCatalog.js';
 
 export {
