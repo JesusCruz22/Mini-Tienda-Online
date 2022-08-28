@@ -116,8 +116,8 @@ function SetProduct(downloadURL) {
     imageName: fileName,
     imageURL: downloadURL,
     name: inputName.value,
-    price: inputPrice.value,
-    stock: inputStock.value,
+    price: Number(inputPrice.value),
+    stock: Number(inputStock.value),
     description: inputDescription.value
   })
 
