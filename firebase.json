@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "minitiendaonline",
-    "public": "public",
+    "public": "./",
     "ignore": [
       "firebase.json",
       "**/.*",
