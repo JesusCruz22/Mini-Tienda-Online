@@ -25,6 +25,7 @@ const cartContainer = document.querySelector('#cart-container');
 const buyContainer = document.querySelector('#buy-container');
 
 // Other DOM Elements
+const orderByLabel = document.querySelector('#order-by-label');
 const manageInventoryButton = document.querySelector('#manage-inventory-button');
 const mainSectionLoader = document.querySelector('#main-section-loader');
 
@@ -54,6 +55,7 @@ function ShowProductsSection() {
     AddProductsCards();
 
     manageInventoryButton.style.bottom = '0';
+    orderByLabel.style.display = 'flex';
 
     menuProductsButton.classList.add('menu-button-active');
     menuCartButton.classList.add('menu-button');
@@ -75,6 +77,7 @@ function ShowCartSection() {
     document.title = 'MTO | Carro';
 
     manageInventoryButton.style.bottom = '-222px';
+    orderByLabel.style.display = 'none';
 
     menuProductsButton.classList.add('menu-button');
     menuCartButton.classList.add('menu-button-active');
@@ -98,6 +101,7 @@ function ShowBuySection() {
     document.title = 'MTO | Comprar';
 
     manageInventoryButton.style.bottom = '-222px';
+    orderByLabel.style.display = 'none';
 
     menuProductsButton.classList.add('menu-button');
     menuCartButton.classList.add('menu-button');
