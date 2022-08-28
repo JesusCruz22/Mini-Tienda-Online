@@ -64,9 +64,9 @@ function ShowProductsSection() {
     menuCartButton.classList.remove('menu-button-active');
     menuBuyButton.classList.remove('menu-button-active');
 
-    menuProductsButtonImage.src = '../Recursos/imagenes/WEBP/IconoProductos-Activo.webp';
-    menuCartButtonImage.src = '../Recursos/imagenes/WEBP/IconoCarritoCompras.webp';
-    menuBuyButtonImage.src = '../Recursos/imagenes/WEBP/IconoCompra.webp';
+    menuProductsButtonImage.src = 'Recursos/imagenes/WEBP/IconoProductos-Activo.webp';
+    menuCartButtonImage.src = 'Recursos/imagenes/WEBP/IconoCarritoCompras.webp';
+    menuBuyButtonImage.src = 'Recursos/imagenes/WEBP/IconoCompra.webp';
 
     productsContainer.style.display = 'flex';
     cartContainer.style.display = 'none';
@@ -86,9 +86,9 @@ function ShowCartSection() {
     menuProductsButton.classList.remove('menu-button-active');
     menuBuyButton.classList.remove('menu-button-active');
 
-    menuProductsButtonImage.src = '../Recursos/imagenes/WEBP/IconoProductos.webp';
-    menuCartButtonImage.src = '../Recursos/imagenes/WEBP/IconoCarritoCompras-Activo.webp';
-    menuBuyButtonImage.src = '../Recursos/imagenes/WEBP/IconoCompra.webp';
+    menuProductsButtonImage.src = 'Recursos/imagenes/WEBP/IconoProductos.webp';
+    menuCartButtonImage.src = 'Recursos/imagenes/WEBP/IconoCarritoCompras-Activo.webp';
+    menuBuyButtonImage.src = 'Recursos/imagenes/WEBP/IconoCompra.webp';
 
     productsContainer.style.display = 'none';
     cartContainer.style.display = 'flex';
@@ -110,9 +110,9 @@ function ShowBuySection() {
     menuProductsButton.classList.remove('menu-button-active');
     menuCartButton.classList.remove('menu-button-active');
 
-    menuProductsButtonImage.src = '../Recursos/imagenes/WEBP/IconoProductos.webp';
-    menuCartButtonImage.src = '../Recursos/imagenes/WEBP/IconoCarritoCompras.webp';
-    menuBuyButtonImage.src = '../Recursos/imagenes/WEBP/IconoCompra-Activo.webp';
+    menuProductsButtonImage.src = 'Recursos/imagenes/WEBP/IconoProductos.webp';
+    menuCartButtonImage.src = 'Recursos/imagenes/WEBP/IconoCarritoCompras.webp';
+    menuBuyButtonImage.src = 'Recursos/imagenes/WEBP/IconoCompra-Activo.webp';
 
     productsContainer.style.display = 'none';
     cartContainer.style.display = 'none';
