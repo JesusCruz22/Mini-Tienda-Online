@@ -170,7 +170,7 @@ function SetBuyProductsList(selectedProduct, quantity, productsPrice) {
     const productBuyData = {
         name: selectedProduct.name,
         quantity: quantity,
-        unitPrice: selectedProduct.price,
+        unitPrice: Number(selectedProduct.price),
         productsPrice: productsPrice
     }
 
