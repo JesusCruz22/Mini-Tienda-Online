@@ -256,21 +256,15 @@ function ShowProductPopUp(productIndex) {
     let selectedProductIndex = GetSelectedProductIndex();
     let selectedProductQuantity = selectedProductsQuantities[selectedProductIndex];
 
-    let productImageURL = selectedProduct.imageURL;
-    let productName = selectedProduct.name;
-    let productPrice = selectedProduct.price;
-    let productStock = selectedProduct.stock;
-    let productDescription = selectedProduct.description;
-
-    popUpImage.src = productImageURL;
-    popUpName.innerHTML = productName;
-    popUpPrice.innerHTML = `$${productPrice}`;
-    popUpStock.innerHTML = `Stock: ${productStock}`;
-    popUpDescription.innerHTML = productDescription;
+    popUpImage.src = selectedProduct.imageURL;
+    popUpName.innerHTML = selectedProduct.name;
+    popUpPrice.innerHTML = `${FormatPrice(selectedProduct.price)}`;
+    popUpStock.innerHTML = `Stock: ${selectedProduct.stock}`;
+    popUpDescription.innerHTML = selectedProduct.description;
 
     ShowPopUpImageLoader();
     popUpBackground.style.display = 'flex';
-    maxProductQuantity = productStock;
+    maxProductQuantity = selectedProduct.stock;
 
     SetAddButtonStyle(IsProductSelected());
     if (IsProductSelected()) popUpProductQuantity.value = selectedProductQuantity;
