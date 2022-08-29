@@ -15,10 +15,12 @@
 }
 
 html {
-    height: 100vh;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
+    margin-bottom: 2em;
     overflow-x: hidden;
     overflow-y: scroll;
     background-color: var(--main-white);
@@ -30,6 +32,7 @@ main {
     justify-content: center;
     align-items: center;
     margin: auto;
+    margin-bottom: 5em;
     padding-bottom: 5%;
     width: auto;
 }
@@ -255,7 +258,15 @@ select:focus {
 }
 
 footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     height: 10vh;
+    width: 100%;
+    background-color: var(--second-white);
 }
 
 @keyframes loader-animation {

@@ -2,7 +2,7 @@ body {
     background-color: var(--second-white);
     overflow-x: hidden;
     overflow-y: scroll;
-    padding-bottom: 25%;
+    padding-bottom: 15%;
 }
 
 label {
